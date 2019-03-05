@@ -1,9 +1,14 @@
 import React from "react"
 
+import NavigationItems from "../NavigationItems"
+
 const Toolbar = props => {
-  console.log("TOOLBAR")
   return (
-    <h2>Toolbar</h2>
+    <header>
+      <nav>
+        <NavigationItems />
+      </nav>
+    </header>
   )
 }
 
