@@ -1,0 +1,29 @@
+.listitem {
+  list-style-type: none;
+  flex: 1;
+  display: flex;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    text-decoration: none;
+    color: #FFF;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    background-color: rgb(0, 179, 255);
+  }
+
+  a:hover {
+    cursor: pointer;
+    opacity: 0.85;
+  }
+
+  a:active,
+  a.active {
+    border-bottom: 4px solid rgb(0, 102, 255);
+    opacity: 0.85;
+  }
+}

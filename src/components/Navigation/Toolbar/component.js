@@ -1,15 +1,16 @@
-import React from "react"
+import React from "react";
+import styles from "./styles.module.scss";
 
-import NavigationItems from "../NavigationItems"
+import NavigationItems from "../NavigationItems";
 
 const Toolbar = props => {
   return (
     <header>
-      <nav>
+      <nav className={styles.nav}>
         <NavigationItems />
       </nav>
     </header>
-  )
-}
+  );
+};
 
-export default Toolbar
+export default Toolbar;
