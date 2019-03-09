@@ -1,29 +1,33 @@
-import {
-  call,
-  put,
-  takeEvery,
-  all
-} from "redux-saga/effects";
-import {
-  EXCHANGE_RATES,
-} from "../constants/actionTypes";
+import { call, put, takeEvery, all } from "redux-saga/effects";
+import { EXCHANGE_RATES } from "../constants/actionTypes";
 
 import { getExchangeRatesSuccess, getExchangeRatesError } from "../actions";
 
-export function* fetchExchangeRates(dispatch) {
+export function* fetchExchangeRates(payload) {
+  const baseUrl = "https://api.exchangeratesapi.io/history";
+
   try {
-    const response = yield call(fetch, "http://data.fixer.io/api/latest?access_key=98a93e9722871810f3a8c1ca3cf6d550&format=1", {
-      "Content-Type": "application/json"
-    });
+    const { date, currency } = payload
+    const response = yield call(
+      fetch,
+      `${baseUrl}?start_at=${date}&end_at=${date}&base=${currency}`,
+      {
+        "Content-Type": "application/json"
+      }
+    );
     const json = yield call([response, response.json]);
-    yield put(getExchangeRatesSuccess(json));
+    if (response.ok) {
+      yield put(getExchangeRatesSuccess(json));
+    } else {
+      throw json;
+    }
   } catch (error) {
-    yield put(getExchangeRatesError(error));
+    yield put(getExchangeRatesError(error.exception));
   }
 }
 
 export function* watchFetchExchangeRates() {
-  yield takeEvery(EXCHANGE_RATES, fetchExchangeRates);
+  yield takeEvery(EXCHANGE_RATES, (test) => fetchExchangeRates(test));
 }
 
 export default function* rootSaga() {

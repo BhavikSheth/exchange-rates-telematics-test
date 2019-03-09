@@ -4,9 +4,11 @@ import {
   EXCHANGE_RATES_ERROR
 } from "../constants/actionTypes";
 
-export const getExchangeRates = () => {
+export const getExchangeRates = (date, currency) => {
   return {
-    type: EXCHANGE_RATES
+    type: EXCHANGE_RATES,
+    date,
+    currency
   };
 };
 

@@ -26,7 +26,8 @@ const exchangeRatesReducer = (state = initialState, action) => {
     case EXCHANGE_RATES_ERROR:
       return {
         ...state,
-        error: action.error
+        loading: false,
+        error: action.error,
       };
     default:
       return state;
