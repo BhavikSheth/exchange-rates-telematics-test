@@ -1,0 +1,19 @@
+.ratesItem {
+  display: flex;
+  flex-direction: row;
+  background-color: #00b3ff;
+  margin-bottom: 10px;
+  padding: 10px;
+  color: #FFF;
+  font-weight: bold;
+  text-align: center;
+  font-size: 20px;
+}
+
+.currency {
+  flex: 1;
+}
+
+.rate {
+  flex: 3;
+}
