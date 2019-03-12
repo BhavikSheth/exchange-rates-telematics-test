@@ -1,6 +1,11 @@
+.main {
+  margin-bottom: 50px;
+}
+
 .container {
   width: 100%;
   padding: 0 15px;
   max-width: 1200px;
   margin: 0 auto;
+  box-sizing: border-box;
 }

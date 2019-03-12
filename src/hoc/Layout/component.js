@@ -1,15 +1,17 @@
-import React from "react"
+import React from "react";
 
-import Toolbar from "../../components/Navigation/Toolbar"
-import styles from "./styles.module.scss"
+import Toolbar from "../../components/Navigation/Toolbar";
+import styles from "./styles.module.scss";
 
 const Layout = props => {
   return (
     <div>
       <Toolbar />
-      <main><div className={styles.container}>{props.children}</div></main>
+      <main className={styles.main}>
+        <div className={styles.container}>{props.children}</div>
+      </main>
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
