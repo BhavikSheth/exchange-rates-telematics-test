@@ -15,19 +15,23 @@ const exchangeRatesReducer = (state = initialState, action) => {
     case EXCHANGE_RATES:
       return {
         ...state,
-        loading: true
+        loading: true,
+        error: null,
+        data: null
       };
     case EXCHANGE_RATES_SUCCESS:
       return {
         ...state,
         loading: false,
-        data: action.payload
+        data: action.payload,
+        error: null
       };
     case EXCHANGE_RATES_ERROR:
       return {
         ...state,
         loading: false,
         error: action.error,
+        data: null
       };
     default:
       return state;
