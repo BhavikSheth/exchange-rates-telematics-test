@@ -27,7 +27,7 @@ export function* fetchExchangeRates(payload) {
       throw json;
     }
   } catch (error) {
-    const errorMessage = error.exception || error.message || error;
+    const errorMessage = error.exception || error.message || error.error || error;
     yield put(getExchangeRatesError(errorMessage));
   }
 }
