@@ -3,7 +3,7 @@ import styles from "./styles.module.scss";
 
 import NavigationItems from "../NavigationItems";
 
-const Toolbar = props => {
+const Toolbar = () => {
   return (
     <header>
       <nav className={styles.nav}>
