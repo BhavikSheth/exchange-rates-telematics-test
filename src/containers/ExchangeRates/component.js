@@ -22,7 +22,7 @@ class ExchangeRates extends Component {
 
   renderRates = () => {
     const { exchangeRates } = this.props;
-    if (exchangeRates.error) return <div>{exchangeRates.error}</div>;
+    if (exchangeRates.error) return <div className={styles.error}>{exchangeRates.error}</div>;
     if (exchangeRates.data) {
       const date = exchangeRates.data.end_at;
       return (
